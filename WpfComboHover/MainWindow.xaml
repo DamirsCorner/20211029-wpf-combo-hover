@@ -6,7 +6,18 @@
         xmlns:local="clr-namespace:WpfComboHover"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+    <StackPanel>
+        <Label Content="{Binding HighlightedItem.Description}" />
+        <ComboBox ItemsSource="{Binding Items}"
+                  SelectedItem="{Binding SelectedItem}"
+                  DisplayMemberPath="Label"
+                  SelectedValuePath="Id"
+                  ToolTip="{Binding SelectedItem.Description}">
+            <ComboBox.ItemContainerStyle>
+                <Style TargetType="{x:Type ComboBoxItem}">
+                    <EventSetter Event="MouseMove" Handler="ComboBoxItem_MouseMove" />
+                </Style>
+            </ComboBox.ItemContainerStyle>
+        </ComboBox>
+    </StackPanel>
 </Window>
