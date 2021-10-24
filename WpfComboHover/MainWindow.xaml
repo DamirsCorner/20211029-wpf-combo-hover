@@ -15,7 +15,8 @@
                   ToolTip="{Binding SelectedItem.Description}">
             <ComboBox.ItemContainerStyle>
                 <Style TargetType="{x:Type ComboBoxItem}">
-                    <EventSetter Event="MouseMove" Handler="ComboBoxItem_MouseMove" />
+                    <Setter Property="local:ComboBoxItemHighlightBehavior.Enabled" Value="True" />
+                    <Setter Property="local:ComboBoxItemHighlightBehavior.HighlightedItem" Value="{Binding DataContext.HighlightedItem, Mode=OneWayToSource, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
                 </Style>
             </ComboBox.ItemContainerStyle>
         </ComboBox>

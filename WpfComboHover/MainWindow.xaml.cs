@@ -15,12 +15,5 @@ namespace WpfComboHover
             InitializeComponent();
             DataContext = App.Current.Services.GetService<MainViewModel>();
         }
-
-        public MainViewModel ViewModel => (MainViewModel)DataContext;
-
-        private void ComboBoxItem_MouseMove(object sender, MouseEventArgs e)
-        {
-            ViewModel.HighlightedItem = (sender as ComboBoxItem)?.DataContext as Item;
-        }
     }
 }
